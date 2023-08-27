@@ -9,8 +9,6 @@ import NotFound from './components/NotFound'
 
 import './App.css'
 
-// use the below bookshelvesList for rendering read status of book items in Bookshelves Route
-
 class App extends Component {
   state = {}
 

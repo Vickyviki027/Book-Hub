@@ -7,7 +7,6 @@ import 'slick-carousel/slick/slick-theme.css'
 import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
 import Header from '../Header'
-// import SideBar from '../SideBar'
 import Footer from '../Footer'
 
 import './index.css'
@@ -191,8 +190,8 @@ class Home extends Component {
             </h1>
             <p className="find-your-next-book-des">
               You are in the right place. Tell us what titles or genres you have
-              enjoyed in the past, and we will give you <br /> surprisingly
-              insightful recommendations.
+              enjoyed in the past, and we will give you surprisingly insightful
+              recommendations.
             </p>
             {this.renderPages()}
           </div>

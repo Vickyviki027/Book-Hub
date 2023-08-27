@@ -1,6 +1,6 @@
 import {Link, withRouter} from 'react-router-dom'
-
 import Cookies from 'js-cookie'
+import HamburgerMenu from '../HamburgerMenu'
 import './index.css'
 
 const Header = props => {
@@ -43,6 +43,7 @@ const Header = props => {
           Logout
         </button>
       </div>
+      <HamburgerMenu isActive={isActive} onClickLogout={onClickLogout} />
     </div>
   )
 }

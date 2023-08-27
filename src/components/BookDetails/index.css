@@ -1,9 +1,9 @@
 .book-details-container {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   background-color: #f5f7fa;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 .book-details-top-container {
@@ -113,7 +113,6 @@
   color: #475569;
   margin-top: 0px;
   margin-bottom: 0px;
-  /* padding-bottom: 7%; */
 }
 @media screen and (max-width: 768px) {
   .author-name-book-details {
@@ -143,7 +142,6 @@
   .about-author-title,
   .about-book-title {
     font-size: 18px;
-    /* line-height: 32px; */
     margin-top: 0px;
     margin-bottom: 0px;
   }
@@ -153,14 +151,12 @@
   font-family: 'Inter';
   font-size: 16px;
   font-weight: 400;
-  /* line-height: 28px; */
   letter-spacing: 0px;
   text-align: left;
   color: #475569;
   margin: 0px;
   margin-top: 0px;
   margin-bottom: 0px;
-  /* line-height: 18px; */
 }
 @media screen and (max-width: 768px) {
   .author-description,
@@ -201,7 +197,6 @@
 @media screen and (max-width: 768px) {
   .book-details-reading-status {
     font-size: 16px;
-    /* line-height: 32px; */
     text-align: center;
   }
 }
