@@ -23,24 +23,26 @@ const Header = props => {
         />
       </Link>
 
-      <nav className="header-sub-container">
-        <ul className="ul-list">
-          <li className={`home-text ${active}`}>
-            <Link className="link-item" to="/">
-              Home
-            </Link>
-          </li>
+      <div className="header-sub-container">
+        <nav className="header-nav-container">
+          <ul className="ul-list">
+            <li className={`home-text ${active}`}>
+              <Link className="link-item" to="/">
+                Home
+              </Link>
+            </li>
 
-          <li className={`shelves-text ${active}`}>
-            <Link className="link-item" to="/shelf">
-              Bookshelves
-            </Link>
-          </li>
-        </ul>
-      </nav>
-      <button onClick={onClickLogout} className="logout-button" type="button">
-        Logout
-      </button>
+            <li className={`shelves-text ${active}`}>
+              <Link className="link-item" to="/shelf">
+                Bookshelves
+              </Link>
+            </li>
+          </ul>
+        </nav>
+        <button onClick={onClickLogout} className="logout-button" type="button">
+          Logout
+        </button>
+      </div>
     </div>
   )
 }

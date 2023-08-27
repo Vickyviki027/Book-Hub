@@ -21,7 +21,7 @@ class App extends Component {
         <ProtectedRoute exact path="/" component={Home} />
         <ProtectedRoute exact path="/shelf" component={BookShelves} />
         <ProtectedRoute exact path="/books/:id" component={BookDetails} />
-        <ProtectedRoute path="/not-found" component={NotFound} />
+        <Route exact path="/not-found" component={NotFound} />
         <Redirect to="not-found" />
       </Switch>
     )

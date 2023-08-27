@@ -62,6 +62,7 @@ class Login extends Component {
       showSubmitError,
       errorMsg,
     } = this.state
+
     const showPassword = isShowPassword ? 'text' : 'password'
 
     const jwtToken = Cookies.get('jwt_token')
@@ -105,7 +106,7 @@ class Login extends Component {
             </label>
             <input
               id="password"
-              type="password"
+              type={showPassword}
               placeholder="Password"
               value={password}
               className="custom-input"

@@ -12,9 +12,9 @@ const BookItems = props => {
           <img className="book-image" src={coverPic} alt={title} />
         </div>
         <div className="book-list-sub-container">
-          <h1 className="book-title">{title}</h1>
-          <p className="author-name">{authorName}</p>
-          <div className="avg-rating-container">
+          <h1 className="book-item-book-title">{title}</h1>
+          <p className="book-item-author-name">{authorName}</p>
+          <div className="book-items-avg-rating-container">
             <p className="avg-rating-title">Avg Rating</p>
             <BsFillStarFill className="star-icon" />
             <p className="rating">{rating}</p>

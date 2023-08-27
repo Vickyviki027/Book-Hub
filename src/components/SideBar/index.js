@@ -24,11 +24,11 @@ const bookshelvesList = [
 ]
 
 const SideBar = props => {
-  const {tabId, changeTab} = props
+  const {activeTab, changeTab} = props
 
   const onClickTab = event => {
-    const activeTab = event.target.textContent
-    changeTab(activeTab)
+    const clickedTab = event.target.textContent
+    changeTab(clickedTab)
   }
   return (
     <div className="side-bar-container">
@@ -36,8 +36,7 @@ const SideBar = props => {
         <div className="list">
           {bookshelvesList.map(eachContent => {
             const isClicked =
-              eachContent.id === tabId ? 'active_text' : 'normal_text'
-
+              eachContent.id === activeTab ? 'active_text' : 'normal_text'
             return (
               <button
                 onClick={onClickTab}

@@ -97,9 +97,11 @@ class Home extends Component {
 
   successView = () => (
     <>
-      <button className="find-books-button-mobile" type="button">
-        Find Books
-      </button>
+      <Link className="find-books-link-mobile" to="/shelf">
+        <button className="find-books-button-mobile" type="button">
+          Find Books
+        </button>
+      </Link>
       <div className="top-rated-book-container">
         <div className="top-container">
           <h1 className="top-rated-book-heading">Top Rated Books</h1>
@@ -158,7 +160,7 @@ class Home extends Component {
             const {id, coverPic, authorName, title} = eachBook
             return (
               <li className="slide-item" key={id}>
-                <Link className="link-items" to={`/books/${id}`}>
+                <Link className="slide-link-items" to={`/books/${id}`}>
                   <img className="cover-pic" src={coverPic} alt={title} />
                   <h1 className="title">{title}</h1>
                   <p className="author-name">{authorName}</p>

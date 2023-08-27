@@ -65,13 +65,13 @@ class BookDetails extends Component {
   )
 
   failureView = () => (
-    <div className="failure-view-container">
+    <div className="book-details-failure-view-container">
       <img
-        className="failure-view-image"
+        className="book-details-failure-view-image"
         src="https://res.cloudinary.com/da7ik4khq/image/upload/v1690715005/Mini%20Project/Group_7522_1x_brolaa.png"
         alt="failure view"
       />
-      <p className="failure-description">
+      <p className="book-details-failure-description">
         Something went wrong, Please try again.
       </p>
       <button
@@ -94,16 +94,21 @@ class BookDetails extends Component {
             src={bookDetailList.coverPic}
             alt={bookDetailList.title}
           />
-          <div className="book-list-sub-container">
-            <h1 className="book-title">{bookDetailList.title}</h1>
-            <p className="author-name">{bookDetailList.authorName}</p>
+          <div className="book-details-list-sub-container">
+            <h1 className="book-details-title">{bookDetailList.title}</h1>
+            <p className="author-name-book-details">
+              {bookDetailList.authorName}
+            </p>
             <div className="avg-rating-container">
-              <p className="avg-rating-title">Avg Rating</p>
-              <BsFillStarFill className="star-icon" />
-              <p className="rating">{bookDetailList.rating}</p>
+              <p className="avg-rating-title-book-details">Avg Rating</p>
+              <BsFillStarFill className="book-details-star-icon" />
+              <p className="book-details-rating">{bookDetailList.rating}</p>
             </div>
-            <p className="reading-status">
-              Status: <span className="span">{bookDetailList.readStatus}</span>
+            <p className="book-details-reading-status">
+              Status:
+              <span className="book-details-span">
+                {bookDetailList.readStatus}
+              </span>
             </p>
           </div>
         </div>
@@ -127,8 +132,6 @@ class BookDetails extends Component {
         return this.failureView()
       case apiStatusConstant.success:
         return this.successView()
-      //   case apiStatusConstant.notFound:
-      //     return this.notFound()
       default:
         return null
     }

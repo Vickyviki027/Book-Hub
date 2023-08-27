@@ -2,38 +2,56 @@
   display: flex;
   flex-direction: row;
   /* justify-content: space-between; */
-  height: 220px;
-  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
   margin-bottom: 5%;
-  margin-left: 0px;
   box-sizing: border-box;
 }
+
 .link-items {
+  max-width: 50%;
+  min-width: 50%;
+  padding: 2%;
+  display: flex;
   text-decoration: none;
+}
+@media screen and (max-width: 768px) {
+  .link-items {
+    max-width: 100%;
+    min-width: 100%;
+  }
 }
 .img-container {
   display: flex;
-  /* min-width: 30%; */
+  max-width: 50%;
   box-sizing: border-box;
 }
 .book-image {
-  /* min-width: 250px; */
   height: 190px;
   min-width: 160px;
   border-radius: 8px;
 }
-
+@media screen and (max-width: 768px) {
+  .book-image {
+    height: 175px;
+    min-width: 145px;
+  }
+}
 .book-list-sub-container {
-  min-width: 50%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
   padding-left: 5%;
   box-sizing: border-box;
-  /* width: 70%; */
+  max-width: 50%;
+  min-width: 50%;
 }
-.book-title {
+
+.book-item-book-title {
   font-family: 'Inter';
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 600;
-  line-height: 24px;
+  /* line-height: 24px; */
   letter-spacing: 0px;
   text-align: left;
   color: #334155;
@@ -41,9 +59,14 @@
   margin-left: 0px;
   padding-bottom: 8%;
 }
-.author-name {
+@media screen and (max-width: 768px) {
+  .book-item-book-title {
+    font-size: 18px;
+  }
+}
+.book-item-author-name {
   font-family: 'Inter';
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 16px;
   letter-spacing: 0px;
@@ -52,7 +75,12 @@
   padding-bottom: 8%;
   color: #334155;
 }
-.avg-rating-container {
+@media screen and (max-width: 768px) {
+  .book-item-author-name {
+    font-size: 16px;
+  }
+}
+.book-items-avg-rating-container {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -71,6 +99,11 @@
   margin: 0px;
   padding-right: 4%;
 }
+@media screen and (max-width: 768px) {
+  .avg-rating-title {
+    font-size: 14px;
+  }
+}
 .star-icon {
   width: 20px;
   height: 20px;
@@ -88,6 +121,11 @@
   color: #334155;
   margin: 0px;
 }
+@media screen and (max-width: 768px) {
+  .rating {
+    font-size: 14px;
+  }
+}
 .reading-status {
   font-family: 'Inter';
   font-size: 16px;
@@ -98,13 +136,23 @@
   color: #475569;
   margin: 0px;
 }
+@media screen and (max-width: 768px) {
+  .reading-status {
+    font-size: 14px;
+  }
+}
 .span {
   font-family: 'Inter';
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 16px;
   letter-spacing: 0px;
   text-align: left;
   color: #0284c7;
   margin: 0px;
+}
+@media screen and (max-width: 768px) {
+  .span {
+    font-size: 14px;
+  }
 }

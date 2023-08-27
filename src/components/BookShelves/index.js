@@ -38,7 +38,6 @@ const apiStatusConstant = {
   failure: 'FAILURE',
   notFound: 'NOT_FOUND',
 }
-let tabId = 0
 
 class BookShelves extends Component {
   state = {
@@ -46,11 +45,11 @@ class BookShelves extends Component {
     apiStatus: apiStatusConstant.initial,
     bookshelfName: bookshelvesList[0].value,
     searchText: '',
+    activeTab: bookshelvesList[0].id,
     header: bookshelvesList[0].label,
   }
 
   componentDidMount() {
-    console.log('In Did Mount')
     this.getAllBooks()
   }
 
@@ -60,28 +59,36 @@ class BookShelves extends Component {
 
   onKeyPress = event => {
     if (event.key === 'Enter') {
-      console.log('Enter')
       this.getAllBooks()
     }
   }
 
-  OnClickSearchIcon = () => {
+  onClickSearchIcon = () => {
     this.getAllBooks()
   }
 
-  changeTab = activeTab => {
+  changeTab = clickedTab => {
     let activeValue = ''
+    let activeTab = ''
     for (let i = 0; i < bookshelvesList.length; i += 1) {
       const eachItem = bookshelvesList[i]
-      if (eachItem.label === activeTab) {
+      if (eachItem.label === clickedTab) {
         activeValue = eachItem.value
-        tabId = i
+        activeTab = eachItem.id
         break
       }
     }
-    this.setState({bookshelfName: activeValue, header: activeTab}, () => {
-      this.componentDidMount()
-    })
+    this.setState(
+      {bookshelfName: activeValue, header: clickedTab, activeTab},
+      () => {
+        this.componentDidMount()
+      },
+    )
+  }
+
+  changeTabMobile = event => {
+    const clickedTab = event.target.textContent
+    this.changeTab(clickedTab)
   }
 
   getAllBooks = async () => {
@@ -96,7 +103,6 @@ class BookShelves extends Component {
       },
     }
     const response = await fetch(url, options)
-    console.log(response.status)
     if (response.ok) {
       const data = await response.json()
       const updatedDate = data.books.map(eachBook => ({
@@ -198,19 +204,20 @@ class BookShelves extends Component {
   }
 
   render() {
-    const {searchText, header} = this.state
+    const {searchText, header, activeTab} = this.state
     return (
       <div className="shelves-main-container">
         <Header />
         <div className="shelves-container">
           <div className="shelves-left-container">
             <h1 className="bookshelves-heading">Bookshelves</h1>
-            <SideBar tabId={tabId} changeTab={this.changeTab} />
+            <SideBar activeTab={activeTab} changeTab={this.changeTab} />
           </div>
 
           <div className="shelves-right-container">
             <div className="bookshelves-success-sub-container">
               <h1 className="bookshelves-name">{header} Books</h1>
+              <h1 className="bookshelves-heading-mobile">BookShelves</h1>
               <div className="search-icon-container">
                 <input
                   placeholder="Search"
@@ -226,11 +233,31 @@ class BookShelves extends Component {
                   testid="searchButton"
                 >
                   <BsSearch
-                    onClick={this.OnClickSearchIcon}
+                    onClick={this.onClickSearchIcon}
                     className="search-icon"
                   />
                 </button>
               </div>
+              <nav className="nav-items-mobile">
+                <div className="nav-mobile-mobile">
+                  {bookshelvesList.map(eachContent => {
+                    const isClicked =
+                      eachContent.id === activeTab
+                        ? 'active_text-mobile'
+                        : 'normal_text-mobile'
+                    return (
+                      <button
+                        onClick={this.changeTabMobile}
+                        className={isClicked}
+                        key={eachContent.label}
+                        type="button"
+                      >
+                        {eachContent.label}
+                      </button>
+                    )
+                  })}
+                </div>
+              </nav>
             </div>
             {this.renderPages()}
           </div>
