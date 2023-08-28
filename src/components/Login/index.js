@@ -7,7 +7,7 @@ class Login extends Component {
   state = {
     username: '',
     password: '',
-    isShowPassword: false,
+    // isShowPassword: false,
     showSubmitError: false,
     errorMsg: '',
   }
@@ -20,9 +20,9 @@ class Login extends Component {
     this.setState({password: event.target.value})
   }
 
-  toggleShowPassword = () => {
-    this.setState(prevState => ({isShowPassword: !prevState.isShowPassword}))
-  }
+  // toggleShowPassword = () => {
+  //   this.setState(prevState => ({isShowPassword: !prevState.isShowPassword}))
+  // }
 
   onSubmitSuccess = JWTtoken => {
     const {history} = this.props
@@ -57,12 +57,12 @@ class Login extends Component {
     const {
       username,
       password,
-      isShowPassword,
+      // isShowPassword,
       showSubmitError,
       errorMsg,
     } = this.state
 
-    const showPassword = isShowPassword ? 'text' : 'password'
+    // const showPassword = isShowPassword ? 'text' : 'password'
 
     const jwtToken = Cookies.get('jwt_token')
 
@@ -105,22 +105,22 @@ class Login extends Component {
             </label>
             <input
               id="password"
-              type={showPassword}
+              type="password"
               placeholder="Password"
               value={password}
               className="custom-input"
               onChange={this.onChangePassword}
             />
-            <div className="show-pwd-container">
-              <input
-                onClick={this.toggleShowPassword}
-                id="showPassword"
-                type="checkbox"
-              />
-              <label className="show-password" htmlFor="showPassword">
-                Show Password
-              </label>
-            </div>
+            // <div className="show-pwd-container">
+            //   <input
+            //     onClick={this.toggleShowPassword}
+            //     id="showPassword"
+            //     type="checkbox"
+            //   />
+            //   <label className="show-password" htmlFor="showPassword">
+            //     Show Password
+            //   </label>
+            // </div>
             <button className="login-button" type="submit">
               Login
             </button>
